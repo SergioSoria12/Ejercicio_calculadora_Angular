@@ -1,28 +1,19 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { Formulario } from "../formulario/formulario";
+import { Resultado } from "../resultado/resultado";
 
 @Component({
   selector: 'app-calculadora',
-  imports: [FormsModule],
+  imports: [FormsModule, Formulario, Resultado],
   templateUrl: './calculadora.html',
   styleUrl: './calculadora.css'
 })
 export class Calculadora {
 
-  operandoA: number = 0;
-  operandoB: number = 0;
-  resultado: number = 0;
+  resultadoPadre: number = 0;
 
-  sumar() {
-    return this.resultado = this.operandoA + this.operandoB; 
-  }
-  restar() {
-    return this.resultado = this.operandoA - this.operandoB; 
-  }
-  multiplicar() {
-    return this.resultado = this.operandoA * this.operandoB; 
-  }
-  dividir() {
-    return this.resultado = this.operandoA / this.operandoB; 
+  procesarResultado(resultadoHijo: number) {
+    this.resultadoPadre = resultadoHijo;
   }
 }
